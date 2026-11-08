@@ -1,0 +1,17 @@
+MAPA DE CAPAS · PMV Parques Naturales
+FRONT-END: Streamlit (app/main.py)
+- Login: identificación, dos roles.
+- Inscripciones: selección de excursión y visitante, asistencia.
+- CRUD 1: listado/formulario de Parque, desactivación.
+- CRUD 2: listado/formulario de Especie, desactivación.
+- Dashboard: cuatro preguntas de negocio con gráficos Plotly.
+BACK-END: Python (app/negocio.py y app/db.py)
+- Autentica contra hash PBKDF2 y controla acceso real mediante Streamlit.
+- Registrar inscripción: verifica FK, capacidad, duplicado y guarda con transacción.
+- CRUD: valida campos y aplica UPDATE/INSERT/desactivación.
+- SQLAlchemy/PyMySQL maneja transacciones y parámetros.
+BASE DE DATOS: MySQL 8.x
+- 21 tablas del caso, incluyendo relaciones débiles, asociativas y usuarios.
+- FK, UNIQUE, CHECK, PK, índices.
+- 6 vistas + 6 procedimientos para R1-R12 (solo Workbench).
+- Datos artificiales obtenidos con Faker y semilla reproducible.

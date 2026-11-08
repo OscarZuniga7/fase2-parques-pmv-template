@@ -1,0 +1,31 @@
+Documento de requerimientos · PMV Parques Naturales · Fase 2
+
+1. Objetivo general:
+   Gestionar inscripciones de visitantes y consultar información de parques, áreas, especies y excursiones en una aplicación integrada con MySQL.
+2. Objetivos específicos:
+   - Registrar inscripciones respetando capacidad, integridad y duplicados.
+   - Gestionar parques y especies (CRUD con desactivación lógica).
+   - Diferenciar al menos dos roles de acceso real.
+   - Visualizar cuatro preguntas de información con filtros.
+3. Objetivo SMART propuesto:
+   Implementar y verificar antes de la defensa del 20/11/2026 un PMV con 4 funcionalidades, 12 objetos SQL, 2 roles y pruebas de aceptación documentadas.
+4. Requerimientos funcionales:
+   RF-01 Registrar inscripción a excursión existente.
+   RF-02 Crear, listar, modificar y desactivar parques.
+   RF-03 Crear, listar, modificar y desactivar especies.
+   RF-04 Autenticar al usuario y aplicar permisos.
+   RF-05 Mostrar cuatro visualizaciones con filtros por parque/fecha donde corresponda.
+   RF-06 Desarrollar 6 vistas y 6 procedimientos para los R1-R12 en MySQL Workbench.
+5. Requerimientos no funcionales:
+   RNF-01 Aplicación web en Streamlit con interfaz en español.
+   RNF-02 Python 3.12+, MySQL 8.x, SQLAlchemy + PyMySQL, Docker Compose.
+   RNF-03 Uso de datos sintéticos; consultas parametrizadas y hash de contraseñas.
+6. Restricciones:
+   R-01 No desarrollar funcionalidades de producción ni usar personas reales.
+   R-02 No incluir los objetos SQL evaluados en el PMV; evidenciarlos en Workbench.
+7. Reglas de negocio:
+   RN-01 No permitir inscribir al mismo visitante dos veces en una excursión.
+   RN-02 Una excursión no puede exceder su capacidad.
+   RN-03 Solo administrador puede realizar cambios y registrar inscripciones.
+   RN-04 Mantener integridad FK y no borrar físicamente maestros referenciados.
+   RN-05 Una evaluación pertenece a una inscripción, con calificación entre 1 y 7.
