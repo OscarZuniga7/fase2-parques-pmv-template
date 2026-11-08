@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Credenciales locales
+.env
+
+# Archivos comprimidos de referencia
+proyecto-fase2-parques-template-main.zip
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc

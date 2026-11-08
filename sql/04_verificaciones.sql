@@ -1,0 +1,7 @@
+USE parques;
+SELECT 'parques' objeto, COUNT(*) cantidad FROM parque_natural UNION ALL SELECT 'areas',COUNT(*) FROM area UNION ALL SELECT 'especies',COUNT(*) FROM especie UNION ALL SELECT 'inventario',COUNT(*) FROM inventario_especie UNION ALL SELECT 'trabajadores',COUNT(*) FROM trabajador UNION ALL SELECT 'proyectos',COUNT(*) FROM proyecto_cientifico UNION ALL SELECT 'visitantes',COUNT(*) FROM visitante UNION ALL SELECT 'excursiones',COUNT(*) FROM excursion UNION ALL SELECT 'inscripciones',COUNT(*) FROM inscripcion UNION ALL SELECT 'evaluaciones',COUNT(*) FROM evaluacion UNION ALL SELECT 'usuarios',COUNT(*) FROM usuario;
+SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA='parques';
+SELECT ROUTINE_NAME FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA='parques' AND ROUTINE_TYPE='PROCEDURE';
+SELECT numCorrelativo,numInterno,codigoExcursion, COUNT(*) inscritos FROM inscripcion GROUP BY 1,2,3 ORDER BY inscritos DESC LIMIT 15;
+SELECT x.numCorrelativo,x.numInterno,x.codigoExcursion,x.capacidad,COUNT(i.idInscripcion) inscritos FROM excursion x LEFT JOIN inscripcion i ON (i.numCorrelativo,i.numInterno,i.codigoExcursion)=(x.numCorrelativo,x.numInterno,x.codigoExcursion) GROUP BY 1,2,3,4 HAVING inscritos>capacidad;
+SELECT e.idEspecie,e.tipo FROM especie e LEFT JOIN vegetal v ON v.idEspecie=e.idEspecie LEFT JOIN animal a ON a.idEspecie=e.idEspecie LEFT JOIN mineral m ON m.idEspecie=e.idEspecie WHERE (v.idEspecie IS NOT NULL)+(a.idEspecie IS NOT NULL)+(m.idEspecie IS NOT NULL)>1;

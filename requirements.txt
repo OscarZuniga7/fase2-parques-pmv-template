@@ -1,0 +1,9 @@
+streamlit>=1.40,<2
+SQLAlchemy>=2.0,<3
+PyMySQL>=1.1,<2
+cryptography>=43,<47
+Faker>=30,<40
+pandas>=2.2,<3
+plotly>=5.24,<7
+python-dotenv>=1.0,<2
+pytest>=8,<10
